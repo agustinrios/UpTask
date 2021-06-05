@@ -1,2 +1,2 @@
 # UpTask
-Proyecto creado con Node JS - Espress - MySQL
+Proyecto creado con Node JS - Express - MySQL
