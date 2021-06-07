@@ -2,6 +2,13 @@ const express = require('express');
 const routes = require('./routes');
 const path = require('path');
 
+//Crear la conexion a la base de datos
+const db = require('./config/db');
+
+db.authenticate()
+    .then(() => console.log('conectado'))
+    .catch(error => console.log(error));
+
 //crear una app de expresss
 const app = express();
 
