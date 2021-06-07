@@ -1,3 +1,5 @@
+const Proyectos = require('../models/Proyectos');
+
 exports.proyectoHome = (req, res) => {
     res.render('index', {
         nombrePagina: 'Proyectos'
@@ -10,7 +12,7 @@ exports.formularioProyecto = (req, res) => {
     });
 }
 
-exports.nuevoProyecto = (req, res) => {
+exports.nuevoProyecto = async (req, res) => {
     //validar que tengamos algo en el input
     const { nombre } = req.body;
 
@@ -28,6 +30,8 @@ exports.nuevoProyecto = (req, res) => {
     }else {
         //No hay errores
         //insertar en la BBDD
+        const proyecto = await Proyectos.create({ nombre });
+        res.redirect('/');
     }
 }
 

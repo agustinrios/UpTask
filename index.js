@@ -5,14 +5,17 @@ const path = require('path');
 //Crear la conexion a la base de datos
 const db = require('./config/db');
 
-db.authenticate()
+//importar el modelo
+require('./models/Proyectos');
+
+db.sync()
     .then(() => console.log('conectado'))
     .catch(error => console.log(error));
 
 //crear una app de expresss
 const app = express();
 
-//donde cargar vlos archivos estaticos
+//donde cargar los archivos estaticos
 app.use(express.static('public'));
 
 //habilitar pug

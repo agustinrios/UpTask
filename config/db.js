@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 // Option 1: Passing a connection URI
-const sequelize = new Sequelize('uptask', 'root', 'root', {
+const sequelize = new Sequelize('uptaks', 'root', 'root', {
     host: 'localhost',
     dialect: 'mysql',
     operatorsAliases: false,
