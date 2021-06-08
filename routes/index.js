@@ -14,5 +14,8 @@ module.exports = function() {
         body('nombre').not().isEmpty().trim().escape(),
         proyectoController.nuevoProyecto
     );
+
+    //listar proyectos
+    router.get('/proyectos/:url', proyectoController.proyectoPorUrl);
     return router;
 }
