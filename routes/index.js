@@ -1,5 +1,5 @@
-const expess = require('express');
-const router = expess.Router();
+const express = require('express');
+const router = express.Router();
 //importar express validator
 const { body }= require('express-validator/check');
 
