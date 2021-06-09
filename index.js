@@ -11,6 +11,7 @@ const db = require('./config/db');
 
 //importar el modelo
 require('./models/Proyectos');
+require('./models/Tareas');
 
 db.sync()
     .then(() => console.log('conectado'))
