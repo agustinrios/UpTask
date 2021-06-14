@@ -3,7 +3,7 @@ const Tareas = require('../models/Tareas');
 
 exports.agregarTarea = async (req, res, next) => {
     // obtenemos el Proyecto actual
-    const proyecto = await Proyectos.findOne({where: { url: req.params.url }});
+    const proyecto = await Proyectos.findOne({where: { url: req.params.url }});
 
     // leer el valor del input
     const {tarea} = req.body;
@@ -25,7 +25,7 @@ exports.agregarTarea = async (req, res, next) => {
 }
 
 exports.cambiarEstadoTarea = async (req, res) => {
-    const { id } = req.params;
+    const { id } = req.params;
     const tarea = await Tareas.findOne({where: { id }});
 
     // cambiar el estado
@@ -47,7 +47,7 @@ exports.eliminarTarea = async (req, res) => {
     const { id } = req.params;
 
     // Eliminar la tarea
-    const resultado = await Tareas.destroy({where : { id  }});
+    const resultado = await Tareas.destroy({where : { id  }});
 
     if(!resultado) return next();
 

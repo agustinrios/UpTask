@@ -44,7 +44,7 @@ if(tareas) {
                         const url = `${location.origin}/tareas/${idTarea}`;
 
                         // enviar el delete por medio axios
-                        axios.delete(url, { params: { idTarea }})
+                        axios.delete(url, { params: { idTarea }})
                             .then(function(respuesta) {
                                 if(respuesta.status === 200) {
                                     // console.log(respuesta);

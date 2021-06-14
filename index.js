@@ -1,43 +1,41 @@
 const express = require('express');
 const routes = require('./routes');
 const path = require('path');
+const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
+const flash = require('connect-flash');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const passport = require('./config/passport');
 
-//helpers con algunas funciones
+// helpers con algunas funciones
 const helpers = require('./helpers');
 
-//Crear la conexion a la base de datos
+// Crear la conexión a la BD
 const db = require('./config/db');
 
-//importar el modelo
+// Importar el modelo
 require('./models/Proyectos');
 require('./models/Tareas');
 require('./models/Usuarios');
 
 db.sync()
-    .then(() => console.log('conectado'))
+    .then(() => console.log('Conectado al Servidor'))
     .catch(error => console.log(error));
 
-//crear una app de expresss
+// crear una app de express
 const app = express();
 
-//donde cargar los archivos estaticos
+// Donde cargar los archivos estaticos
 app.use(express.static('public'));
 
-//habilitar pug
+// Habilitar Pug
 app.set('view engine', 'pug');
-//añadir la carpeta de las vistas
-app.set('views', path.join(__dirname, './views'));
 
-//pasar var dump
-app.use((req, res, next) => {
-    res.locals.vardump = helpers.vardump;
-    next();
-});
+// habilitar bodyParser para leer datos del formulario
 
-//habilitar bodyParser para leer datos del formulario
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Agregamos express validator a toda la aplicación
 app.use(expressValidator());

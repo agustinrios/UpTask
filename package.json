@@ -1,14 +1,14 @@
 {
-  "name": "task",
+  "name": "uptasknodejs",
   "version": "1.0.0",
-  "description": "proyecto upTaks MVC",
+  "description": "Proyecto UpTask con Node y MVC",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon ./index.js",
     "start": "concurrently \"npm run dev \" \"npm run watch \" ",
     "watch": "webpack --w --mode development"
   },
-  "author": "agustin rios",
+  "author": "Agustin Rios",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",

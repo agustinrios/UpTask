@@ -4,9 +4,11 @@ include mixins/crearProyecto
 
 block contenido
     .contenido-principal
-        h1= nombrePagina
+        h1 #{nombrePagina}
 
-        if errores
+        //- pre= vardump(proyecto)
+
+        if errores 
             each error in errores
                 .alerta= error.texto
         +crearProyecto(proyecto)

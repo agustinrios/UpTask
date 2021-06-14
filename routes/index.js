@@ -1,10 +1,11 @@
 const express = require('express');
 const router = express.Router();
-//importar express validator
-const { body }= require('express-validator/check');
 
-//importar el controlador
-const proyectosController = require('../controllers/proyectoController');
+// importar express validator
+const { body } = require('express-validator/check');
+
+// importar el controlador
+const proyectosController = require('../controllers/proyectosController');
 const tareasController = require('../controllers/tareasController');
 const usuariosController = require('../controllers/usuariosController');
 const authController = require('../controllers/authController');
@@ -86,6 +87,6 @@ module.exports = function() {
     router.get('/reestablecer/:token', authController.validarToken);
     router.post('/reestablecer/:token', authController.actualizarPassword);
 
-
     return router;
 }
+

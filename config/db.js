@@ -1,20 +1,19 @@
-const { Sequelize } = require('sequelize');
+const Sequelize = require('sequelize');
 
-// Option 1: Passing a connection URI
-const sequelize = new Sequelize('uptaks', 'root', 'root', {
-    host: 'localhost',
-    dialect: 'mysql',
-    operatorsAliases: false,
-    port: 3306,
-    define:{
-        timestamps: false
-    },
-    pool:{
-        max: 5,
-        min: 0,
-        acquire: 30000,
-        idle: 10000,
-    }
-}); 
+const db = new Sequelize('uptaks', 'root', 'root', {
+  host: '127.0.0.1',
+  dialect: 'mysql',
+  port: '3306',
+  operatorsAliases: false,
+  define: {
+      timestamps: false
+  },
+  pool: {
+    max: 5,
+    min: 0,
+    acquire: 30000,
+    idle: 10000
+  }
+});
 
-module.exports = sequelize;
+module.exports = db;
